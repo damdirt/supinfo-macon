@@ -1,0 +1,75 @@
+/* 
+    Document   : style
+    Created on : 1 juin 2013, 22:57:34
+    Author     : patrice
+    Description: Purpose of the stylesheet follows.
+*/
+.button {
+    cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+    padding:5px 25px; /*add some padding to the inside of the button*/
+    /*give the button curved corners, alter the size as required*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /*give the button a drop shadow*/
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    box-shadow: 0 0 4px rgba(0,0,0, .75);
+}
+
+.button:hover {
+    /*reduce the drop shadow size to give a pushed button effect*/
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+    box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+
+.validateButton:active
+{
+    background: #4477a1;
+}
+
+.validateButton { 
+    background: #4477a1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#81a8cb), to(#4477a1) );
+    background: -moz-linear-gradient(-90deg, #81a8cb, #4477a1);
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#81a8cb', endColorstr='#4477a1');
+    color: white;
+}
+
+.validateButton:hover {
+    background: #81a8cb;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4477a1), to(#81a8cb) );
+    background: -moz-linear-gradient(-90deg, #4477a1, #81a8cb);
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4477a1', endColorstr='#81a8cb');            
+}
+
+.buttonZone{
+    background-color: #CACBD1;
+    height: 40px;
+    text-align: center;
+    padding: 20px;
+}
+
+.form{
+    margin-bottom: 10px;
+}
+
+form > ul{
+    margin: auto;
+    text-align: center;
+    list-style-position: inside;
+}
+
+.form > table{
+    margin: auto;
+}
+
+
+.title{
+    border-bottom: gainsboro solid thin;
+}
+
+.error{
+    color: red;
+}

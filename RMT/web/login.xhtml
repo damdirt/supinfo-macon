@@ -3,19 +3,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Login form</title>
+        <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
+        <h1 class="title">Login form</h1>
+        
         <h:form>
-            <h:messages />
+            <h:messages styleClass="error" />
             
-            <h:outputLabel for="username" value="Username :" />
-            <h:inputText id="username" value="#{userController.username}" />
+            <h:panelGroup class="form" layout="block">
             
-            <h:outputLabel for="password" value="Password :" />
-            <h:inputSecret id="password" value="#{userController.password}" />
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="username" value="Username :" />
+                    <h:inputText id="username" value="#{userController.username}" />
+
+                    <h:outputLabel for="password" value="Password :" />
+                    <h:inputSecret id="password" value="#{userController.password}" />
+                </h:panelGrid>
+             
+            </h:panelGroup>
             
-            <h:commandButton action="#{userController.signIn}" value="Valider" />
+            <h:panelGroup styleClass="buttonZone" layout="block">
+                <h:commandButton styleClass="button validateButton" action="#{userController.signIn}" value="Valider" />
+            </h:panelGroup>
             
         </h:form>
     </h:body>
