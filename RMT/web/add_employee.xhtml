@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>New Employee Form</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        <h1 class="title">New Employee form</h1>
+        
+        <h:form>
+            <h:messages styleClass="error" />
+            
+            <h:panelGroup class="form" layout="block">
+            
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="username" value="Username:" />
+                    <h:inputText id="username" value="#{employeeController.employee.username}" />
+
+                    <h:outputLabel for="password" value="Password:" />
+                    <h:inputSecret id="password" value="#{employeeController.employee.password}" />
+                    
+                    <h:outputLabel for="firstName" value="firstName:" />
+                    <h:inputText id="firstName" value="#{employeeController.employee.firstName}" />
+                    
+                    <h:outputLabel for="lastName" value="lastName:" />
+                    <h:inputText id="lastName" value="#{employeeController.employee.lastName}" />
+                    
+                    <h:outputLabel for="email" value="E-mail:" />
+                    <h:inputText id="email" value="#{employeeController.employee.email}" />
+                    
+                    <h:outputLabel for="birthday" value="Date Of Birth:" />
+                    <h:panelGroup>
+                        <h:inputText id="birthday" value="#{employeeController.employee.birthday}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:inputText>
+                        (dd/MM/yyyy)
+                    </h:panelGroup>
+                </h:panelGrid>
+             
+            </h:panelGroup>
+            
+            <h:panelGroup styleClass="buttonZone" layout="block">
+                <h:commandButton styleClass="button validateButton" action="#{employeeController.addEmployee}" value="Valider" />
+            </h:panelGroup>
+            
+        </h:form>
+    </h:body>
+</html>
+

@@ -26,11 +26,10 @@ public class UserServiceImpl implements UserService{
     public User findUserByLogin(String login){
         try{
             return em.createNamedQuery("User.byLogin", User.class).setParameter("username", login).getSingleResult();
-            //return new Manager();
         }catch (final NoResultException userNotFoundEx){
             return null;
         }
         
     }
-
+    
 }

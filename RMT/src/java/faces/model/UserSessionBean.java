@@ -4,7 +4,9 @@
  */
 package faces.model;
 
+import domain.Manager;
 import domain.User;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -14,7 +16,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "userSession")
 @SessionScoped
-public class UserSessionBean {
+public class UserSessionBean implements Serializable{
     
     private User user;
 
@@ -30,5 +32,9 @@ public class UserSessionBean {
 
     public User getUser() {
         return user;
+    }
+    
+    public Manager getUserAsManager(){
+        return (Manager) user;
     }
 }

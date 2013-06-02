@@ -73,3 +73,37 @@ form > ul{
 .error{
     color: red;
 }
+
+.dataTable{   
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px #CACBD1;
+}
+
+table td{
+    padding: 5px;
+    text-align: left;
+}
+ 
+.dataTable-header{
+    text-align:left;
+    border-bottom:1px solid #BBBBBB;
+    padding:16px;
+    font-size: medium;
+}
+ 
+.dataTable-odd-row{
+    text-align:left;
+    background:none repeat scroll 0 0;
+    border-top:1px solid #BBBBBB;
+}
+ 
+.dataTable-even-row{
+    text-align:left;
+    background:none repeat scroll 0 0 #F9F9F9;
+    border-top:1px solid #BBBBBB;
+}
+
+.link {
+    color: #4477a1;
+}
