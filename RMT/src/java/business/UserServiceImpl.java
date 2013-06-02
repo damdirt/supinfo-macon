@@ -4,11 +4,10 @@
  */
 package business;
 
-import domain.Manager;
 import domain.User;
 import javax.ejb.Singleton;
+import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
@@ -17,6 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author patrice
  */
 @Singleton(name = "userService")
+@TransactionAttribute
 public class UserServiceImpl implements UserService{
     
     @PersistenceContext(unitName = "RMTPU")

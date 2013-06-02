@@ -4,7 +4,7 @@
  */
 package business;
 
-import domain.Employee;
+import domain.Client;
 import javax.ejb.Remote;
 
 /**
@@ -12,7 +12,8 @@ import javax.ejb.Remote;
  * @author patrice
  */
 @Remote
-public interface EmployeeService {
+public interface ClientService {
     
-    Employee addEmployee(Employee employee);
+    Client addClient(Client client);
+    
 }

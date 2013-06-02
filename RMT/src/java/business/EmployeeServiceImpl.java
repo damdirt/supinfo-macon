@@ -5,8 +5,6 @@
 package business;
 
 import domain.Employee;
-import domain.Manager;
-import java.util.ArrayList;
 import javax.ejb.Singleton;
 import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;

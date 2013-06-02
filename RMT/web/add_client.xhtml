@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>New Client Form</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        <h1 class="title">New Client form</h1>
+        
+        <h:form>
+            <h:messages styleClass="error" />
+            
+            <h:panelGroup class="form" layout="block">
+            
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="name" value="Name:" />
+                    <h:inputText id="name" value="#{clientController.client.name}" />
+                </h:panelGrid>
+             
+            </h:panelGroup>
+            
+            <h:panelGroup styleClass="buttonZone" layout="block">
+                <h:commandButton styleClass="button validateButton" action="#{clientController.addClient}" value="Valider" />
+            </h:panelGroup>
+            
+        </h:form>
+    </h:body>
+</html>
+
