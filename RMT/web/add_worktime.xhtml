@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>New Worktime Form</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        <h1 class="title">New Worktime form</h1>
+        
+        <h:form>
+            <h:messages styleClass="error" />
+            
+            <h:panelGroup class="form" layout="block">
+            
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="beginDate" value="Begin date (dd/MM/yyyy):" />
+                    <h:inputText id="beginDate" value="#{worktimeController.worktime.beginDate}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:inputText>
+                    
+                    <h:outputLabel for="endDate" value="End date (dd/MM/yyyy):" />
+                    <h:inputText id="endDate" value="#{worktimeController.worktime.endDate}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:inputText>
+                    
+                    <h:outputLabel for="client" value="Client:" />
+                    <h:selectOneListbox id="client" value="#{worktimeController.worktime.client}">
+                        <f:converter converterId="com.supinfo.macon.faces.SimpleClientConverter" />
+                        <f:selectItems value="#{worktimeController.clients}" var="client" itemLabel="#{client.name}" />
+                    </h:selectOneListbox>
+                </h:panelGrid>
+             
+            </h:panelGroup>
+            
+            <h:panelGroup styleClass="buttonZone" layout="block">
+                <h:commandButton styleClass="button validateButton" action="#{worktimeController.addWorktime}" value="Valider" />
+            </h:panelGroup>
+            
+        </h:form>
+    </h:body>
+</html>
+

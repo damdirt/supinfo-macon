@@ -5,12 +5,16 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -18,16 +22,23 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Client.findAll",
-                query = "SELECT c FROM Client c ORDER BY c.name")
+    @NamedQuery(name = "Worktime.findAll",
+                query = "SELECT w FROM Worktime w")
 })
-public class Client implements Serializable {
+public class Worktime implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private String name;
+    @Temporal(TemporalType.DATE)
+    private Date beginDate;
+    
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
+    
+    @OneToOne
+    private Client client;
 
     public Long getId() {
         return id;
@@ -37,14 +48,30 @@ public class Client implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Date getBeginDate() {
+        return beginDate;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBeginDate(Date beginDate) {
+        this.beginDate = beginDate;
     }
-   
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -55,10 +82,10 @@ public class Client implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Client)) {
+        if (!(object instanceof Worktime)) {
             return false;
         }
-        Client other = (Client) object;
+        Worktime other = (Worktime) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -67,7 +94,7 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return "domain.Client[ id=" + id + " ]";
+        return "domain.Worktime[ id=" + id + " ]";
     }
     
 }

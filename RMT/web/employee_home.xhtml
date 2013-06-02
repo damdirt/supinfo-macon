@@ -2,12 +2,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Employee</title>
+        <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
         Hello employee #{userSession.user.firstName} #{userSession.user.lastName}
+        
+        <h:dataTable value="#{worktimeController.worktimes}" var="worktime" styleClass="dataTable" rowClasses="dataTable-even-row, dataTable-odd-row" headerClass="dataTable-header">
+            
+            <h:column>
+                <f:facet name="header">Client</f:facet>
+                <h:outputText value="#{worktime.client.name}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Begin date</f:facet>
+                <h:outputText value="#{worktime.beginDate}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">End date</f:facet>
+                <h:outputText value="#{worktime.endDate}" />
+            </h:column>
+            
+            <h:column>
+                <h:form>
+                    <h:commandLink actionListener="#{worktimeController.deleteWorktime}" value="[Delete]">
+                        <f:attribute name="worktimeToDeleteId" value="#{worktime.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+            
+        </h:dataTable>
+        
+        <h:link outcome="add_worktime" value="Add a worktime" styleClass="link" />
     </h:body>
 </html>
 

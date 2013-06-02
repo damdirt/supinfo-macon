@@ -7,6 +7,7 @@ package faces.controller;
 import business.EmployeeService;
 import domain.Employee;
 import domain.Manager;
+import faces.FacesUtils;
 import faces.model.UserSessionBean;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -51,11 +52,11 @@ public class EmployeeController implements Serializable{
                 userSession.setUser(employeeAdded.getManager());
                 return "manager_home";
             }else{
-                addFacesErrorMessage("Something went wrong, please re-submit", "An error with your form occured, please re-submit it.");
+                FacesUtils.addFacesErrorMessage("Something went wrong, please re-submit", "An error with your form occured, please re-submit it.");
             }
             
         }else{
-            addFacesErrorMessage("Missing mandatory values", "Please, fill out every mandatory fields.");
+            FacesUtils.addFacesErrorMessage("Missing mandatory values", "Please, fill out every mandatory fields.");
         }
         
         return outcome;
@@ -73,11 +74,7 @@ public class EmployeeController implements Serializable{
         this.employee = employee;
     }
 
-    private void addFacesErrorMessage(final String msgSum, final String msgDetail) {
-        final FacesContext context = FacesContext.getCurrentInstance();
-        final FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, msgSum, msgDetail);
-        context.addMessage(null, msg);
-    }
+    
 
     public void setUserSession(UserSessionBean userSession) {
         this.userSession = userSession;

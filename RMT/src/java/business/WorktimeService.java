@@ -4,7 +4,7 @@
  */
 package business;
 
-import domain.Client;
+import domain.Worktime;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -13,12 +13,12 @@ import javax.ejb.Remote;
  * @author patrice
  */
 @Remote
-public interface ClientService {
+public interface WorktimeService {
     
-    Client addClient(Client client);
+    Worktime addWorktime(Worktime worktime);
     
-    List<Client> getAll();
+    List<Worktime> findAll();
     
-    Client getById(Long id);
+    boolean delete(Long id);
     
 }

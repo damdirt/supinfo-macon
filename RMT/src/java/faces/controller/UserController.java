@@ -7,6 +7,7 @@ package faces.controller;
 import business.UserService;
 import domain.Employee;
 import domain.User;
+import faces.FacesUtils;
 import faces.model.UserSessionBean;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -45,9 +46,7 @@ public class UserController implements Serializable {
             outcome = (user instanceof Employee) ? "employee_home" : "manager_home";
             userSession.setUser(user);
         }else{
-            final FacesContext context = FacesContext.getCurrentInstance();
-            final FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Bad credentials", "You 're not registered, please register first before sign in.");
-            context.addMessage(null, msg);
+            FacesUtils.addFacesErrorMessage("Bad credentials", "You 're not registered, please register first before sign in.");
         }
         
         return outcome;
