@@ -4,11 +4,11 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>New Worktime Form</title>
+        <title>#{resourceBundle['worktime.title']}</title>
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        <h1 class="title">New Worktime form</h1>
+        <h1 class="title">#{resourceBundle['worktime.title']}</h1>
         
         <h:form>
             <h:messages styleClass="error" />
@@ -16,18 +16,18 @@
             <h:panelGroup class="form" layout="block">
             
                 <h:panelGrid columns="2">
-                    <h:outputLabel for="beginDate" value="Begin date (dd/MM/yyyy):" />
-                    <h:inputText id="beginDate" value="#{worktimeController.worktime.beginDate}">
+                    <h:outputLabel for="beginDate" value="#{resourceBundle['worktime.beginDate']}" />
+                    <h:inputText id="beginDate" value="#{worktimeController.worktime.beginDate}" required="true">
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     
-                    <h:outputLabel for="endDate" value="End date (dd/MM/yyyy):" />
-                    <h:inputText id="endDate" value="#{worktimeController.worktime.endDate}">
+                    <h:outputLabel for="endDate" value="#{resourceBundle['worktime.endDate']}" />
+                    <h:inputText id="endDate" value="#{worktimeController.worktime.endDate}" required="true">
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     
-                    <h:outputLabel for="client" value="Client:" />
-                    <h:selectOneListbox id="client" value="#{worktimeController.worktime.client}">
+                    <h:outputLabel for="client" value="#{resourceBundle['worktime.client.name']}" />
+                    <h:selectOneListbox id="client" value="#{worktimeController.worktime.client}" required="true" >
                         <f:converter converterId="com.supinfo.macon.faces.SimpleClientConverter" />
                         <f:selectItems value="#{worktimeController.clients}" var="client" itemLabel="#{client.name}" />
                     </h:selectOneListbox>
@@ -36,7 +36,7 @@
             </h:panelGroup>
             
             <h:panelGroup styleClass="buttonZone" layout="block">
-                <h:commandButton styleClass="button validateButton" action="#{worktimeController.addWorktime}" value="Valider" />
+                <h:commandButton styleClass="button validateButton" action="#{worktimeController.addWorktime}" value="#{resourceBundle['worktime.button.validate']}" />
             </h:panelGroup>
             
         </h:form>

@@ -4,38 +4,38 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Manager</title>
+        <title>#{resourceBundle['manager.home.title']}</title>
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        Hello manager #{userSession.user.firstName} #{userSession.user.lastName}
+        #{resourceBundle['manager.home.welcome']} #{userSession.user.firstName} #{userSession.user.lastName}
         
         <h:dataTable value="#{userSession.userAsManager.employees}" var="employee" styleClass="dataTable" rowClasses="dataTable-even-row, dataTable-odd-row" headerClass="dataTable-header">
             
             <h:column>
-                <f:facet name="header">Username</f:facet>
+                <f:facet name="header">#{resourceBundle['manager.home.table.header.username']}</f:facet>
                 <h:outputText value="#{employee.username}" />
             </h:column>
             
             <h:column>
-                <f:facet name="header">First Name</f:facet>
+                <f:facet name="header">#{resourceBundle['manager.home.table.header.firstname']}</f:facet>
                 <h:outputText value="#{employee.firstName}" />
             </h:column>
             
             <h:column>
-                <f:facet name="header">Last Name</f:facet>
+                <f:facet name="header">#{resourceBundle['manager.home.table.header.lastname']}</f:facet>
                 <h:outputText value="#{employee.lastName}" />
             </h:column>
             
             <h:column>
-                <f:facet name="header">E-mail</f:facet>
+                <f:facet name="header">#{resourceBundle['manager.home.table.header.email']}</f:facet>
                 <h:outputText value="#{employee.email}" />
             </h:column>
             
         </h:dataTable>
         
-        <h:link outcome="add_employee" value="Add an employee" styleClass="link" />
-        <h:link outcome="add_client" value="Add a client" styleClass="link" />
+        <h:link outcome="add_employee" value="#{resourceBundle['manager.home.link.employee.add']}" styleClass="link" />
+        <h:link outcome="add_client" value="#{resourceBundle['manager.home.link.client.add']}" styleClass="link" />
     </h:body>
 </html>
 

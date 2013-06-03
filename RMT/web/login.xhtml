@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Login form</title>
+        <title><h:outputText value="#{resourceBundle['login.title']}" /></title>
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        <h1 class="title">Login form</h1>
+        <h1 class="title"><h:outputText value="#{resourceBundle['login.title']}" /></h1>
         
         <h:form>
             <h:messages styleClass="error" />
@@ -15,17 +16,17 @@
             <h:panelGroup class="form" layout="block">
             
                 <h:panelGrid columns="2">
-                    <h:outputLabel for="username" value="Username:" />
-                    <h:inputText id="username" value="#{userController.username}" />
+                    <h:outputLabel for="username" value="#{resourceBundle['login.username']}" />
+                    <h:inputText id="username" value="#{userController.username}" required="true"  />
 
-                    <h:outputLabel for="password" value="Password:" />
-                    <h:inputSecret id="password" value="#{userController.password}" />
+                    <h:outputLabel for="password" value="#{resourceBundle['login.password']}" />
+                    <h:inputSecret id="password" value="#{userController.password}" required="true" />
                 </h:panelGrid>
              
             </h:panelGroup>
             
             <h:panelGroup styleClass="buttonZone" layout="block">
-                <h:commandButton styleClass="button validateButton" action="#{userController.signIn}" value="Valider" />
+                <h:commandButton styleClass="button validateButton" action="#{userController.signIn}" value="#{resourceBundle['login.button.validate']}" />
             </h:panelGroup>
             
         </h:form>

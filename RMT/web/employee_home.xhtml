@@ -4,32 +4,32 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Employee</title>
+        <title>#{resourceBundle['employee.home.title']}</title>
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        Hello employee #{userSession.user.firstName} #{userSession.user.lastName}
+        #{resourceBundle['employee.home.welcome']} #{userSession.user.firstName} #{userSession.user.lastName}
         
         <h:dataTable value="#{worktimeController.worktimes}" var="worktime" styleClass="dataTable" rowClasses="dataTable-even-row, dataTable-odd-row" headerClass="dataTable-header">
             
             <h:column>
-                <f:facet name="header">Client</f:facet>
+                <f:facet name="header">#{resourceBundle['employee.home.table.header.client']}</f:facet>
                 <h:outputText value="#{worktime.client.name}" />
             </h:column>
             
             <h:column>
-                <f:facet name="header">Begin date</f:facet>
+                <f:facet name="header">#{resourceBundle['employee.home.table.header.beginDate']}</f:facet>
                 <h:outputText value="#{worktime.beginDate}" />
             </h:column>
             
             <h:column>
-                <f:facet name="header">End date</f:facet>
+                <f:facet name="header">#{resourceBundle['employee.home.table.header.endDate']}</f:facet>
                 <h:outputText value="#{worktime.endDate}" />
             </h:column>
             
             <h:column>
                 <h:form>
-                    <h:commandLink actionListener="#{worktimeController.deleteWorktime}" value="[Delete]">
+                    <h:commandLink actionListener="#{worktimeController.deleteWorktime}" value="#{resourceBundle['employee.home.table.link.worktime.delete']}">
                         <f:attribute name="worktimeToDeleteId" value="#{worktime.id}" />
                     </h:commandLink>
                 </h:form>
@@ -37,7 +37,7 @@
             
         </h:dataTable>
         
-        <h:link outcome="add_worktime" value="Add a worktime" styleClass="link" />
+        <h:link outcome="add_worktime" value="#{resourceBundle['employee.home.link.worktime.add']}" styleClass="link" />
     </h:body>
 </html>
 

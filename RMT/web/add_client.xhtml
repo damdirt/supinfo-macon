@@ -4,11 +4,11 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>New Client Form</title>
+        <title>#{resourceBundle['client.title']}</title>
         <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        <h1 class="title">New Client form</h1>
+        <h1 class="title">#{resourceBundle['client.title']}</h1>
         
         <h:form>
             <h:messages styleClass="error" />
@@ -16,14 +16,14 @@
             <h:panelGroup class="form" layout="block">
             
                 <h:panelGrid columns="2">
-                    <h:outputLabel for="name" value="Name:" />
-                    <h:inputText id="name" value="#{clientController.client.name}" />
+                    <h:outputLabel for="name" value="#{resourceBundle['client.title']}" />
+                    <h:inputText id="name" value="#{clientController.client.name}" required="true" />
                 </h:panelGrid>
              
             </h:panelGroup>
             
             <h:panelGroup styleClass="buttonZone" layout="block">
-                <h:commandButton styleClass="button validateButton" action="#{clientController.addClient}" value="Valider" />
+                <h:commandButton styleClass="button validateButton" action="#{clientController.addClient}" value="#{resourceBundle['client.button.validate']}" />
             </h:panelGroup>
             
         </h:form>
