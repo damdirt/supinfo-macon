@@ -108,3 +108,8 @@ table td{
     color: #4477a1;
     margin: 2px;
 }
+
+.navigationLink {
+    display: block;
+    float: right;
+}

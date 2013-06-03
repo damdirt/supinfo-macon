@@ -1,15 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <title>#{resourceBundle['employee.home.title']}</title>
-        <h:outputStylesheet library="css" name="style.css" />
-    </h:head>
-    <h:body>
-        #{resourceBundle['employee.home.welcome']} #{userSession.user.firstName} #{userSession.user.lastName}
-        
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="/WEB-INF/templates/employee.xhtml">
+    
+    <ui:define name="title">
+        #{resourceBundle['employee.home.title']} #{userSession.user.firstName} #{userSession.user.lastName}
+    </ui:define>
+    
+    <ui:define name="content">
         <h:dataTable value="#{worktimeController.worktimes}" var="worktime" styleClass="dataTable" rowClasses="dataTable-even-row, dataTable-odd-row" headerClass="dataTable-header">
             
             <h:column>
@@ -38,6 +40,6 @@
         </h:dataTable>
         
         <h:link outcome="add_worktime" value="#{resourceBundle['employee.home.link.worktime.add']}" styleClass="link" />
-    </h:body>
-</html>
+    </ui:define>
+</ui:composition>
 

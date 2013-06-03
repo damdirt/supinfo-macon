@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <title>#{resourceBundle['manager.home.title']}</title>
-        <h:outputStylesheet library="css" name="style.css" />
-    </h:head>
-    <h:body>
-        #{resourceBundle['manager.home.welcome']} #{userSession.user.firstName} #{userSession.user.lastName}
-        
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="/WEB-INF/templates/manager.xhtml">
+    <ui:define name="title">
+        #{resourceBundle['manager.home.title']} #{userSession.user.firstName} #{userSession.user.lastName}
+    </ui:define>
+    
+    <ui:define name="content">
         <h:dataTable value="#{userSession.userAsManager.employees}" var="employee" styleClass="dataTable" rowClasses="dataTable-even-row, dataTable-odd-row" headerClass="dataTable-header">
             
             <h:column>
@@ -36,6 +37,6 @@
         
         <h:link outcome="add_employee" value="#{resourceBundle['manager.home.link.employee.add']}" styleClass="link" />
         <h:link outcome="add_client" value="#{resourceBundle['manager.home.link.client.add']}" styleClass="link" />
-    </h:body>
-</html>
+    </ui:define>
+</ui:composition>
 

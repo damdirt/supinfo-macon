@@ -11,11 +11,9 @@ import faces.FacesUtils;
 import faces.model.UserSessionBean;
 import java.io.Serializable;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 
 /**
  *
@@ -50,6 +48,11 @@ public class UserController implements Serializable {
         }
         
         return outcome;
+    }
+    
+    public String signOut(){
+        userSession.setUser(null);
+        return "login";
     }
 
     public String getPassword() {
