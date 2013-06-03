@@ -4,6 +4,7 @@
  */
 package domain;
 
+import constraint.ValidPassword;
 import java.io.Serializable;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -12,10 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -39,7 +38,7 @@ public abstract class User implements Serializable {
     @NotEmpty
     private String username;
     
-    @NotEmpty
+    @ValidPassword
     private String password;
     
     @NotEmpty
@@ -66,7 +65,7 @@ public abstract class User implements Serializable {
     public String getLastName() {
         return lastName;
     }
-
+    
     public String getPassword() {
         return password;
     }

@@ -5,6 +5,7 @@
 package faces.controller;
 
 import business.UserService;
+import constraint.ValidPassword;
 import domain.Employee;
 import domain.User;
 import faces.FacesUtils;
@@ -27,7 +28,7 @@ public class UserController implements Serializable {
     @NotEmpty
     private String username;
     
-    @NotEmpty
+    @ValidPassword
     private String password;
     
     @ManagedProperty("#{userSession}")
