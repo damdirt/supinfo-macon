@@ -7,7 +7,17 @@
     <ejb-local-ref>
         <ejb-ref-name>business/clientService</ejb-ref-name>
         <local>business.ClientService</local>
-    </ejb-local-ref>
+    </ejb-local-ref>  
+    <filter>
+        <filter-name>managerFilter</filter-name>
+        <filter-class>servlet.filter.ManagerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>managerFilter</filter-name>
+        <url-pattern>/faces/manager_home.xhtml</url-pattern>
+        <url-pattern>/faces/add_employee.xhtml</url-pattern>
+        <url-pattern>/faces/add_client.xhtml</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -25,4 +35,5 @@
     <welcome-file-list>
         <welcome-file>faces/login.xhtml</welcome-file>
     </welcome-file-list>
-</web-app>
+    
+    </web-app>
