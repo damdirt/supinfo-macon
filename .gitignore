@@ -5,3 +5,4 @@
 *.war
 *.ear
 /RMT/build/
+/RMT/dist/
