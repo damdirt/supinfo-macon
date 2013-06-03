@@ -14,6 +14,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -23,8 +24,10 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class UserController implements Serializable {
     
+    @NotEmpty
     private String username;
     
+    @NotEmpty
     private String password;
     
     @ManagedProperty("#{userSession}")

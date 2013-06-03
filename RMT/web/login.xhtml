@@ -16,10 +16,10 @@
             
                 <h:panelGrid columns="2">
                     <h:outputLabel for="username" value="#{resourceBundle['login.username']}" />
-                    <h:inputText id="username" value="#{userController.username}" required="true"  />
+                    <h:inputText id="username" value="#{userController.username}" />
 
                     <h:outputLabel for="password" value="#{resourceBundle['login.password']}" />
-                    <h:inputSecret id="password" value="#{userController.password}" required="true" />
+                    <h:inputSecret id="password" value="#{userController.password}" />
                 </h:panelGrid>
              
             </h:panelGroup>

@@ -15,6 +15,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 /**
  *
@@ -32,6 +34,7 @@ public class Worktime implements Serializable {
     private Long id;
     
     @Temporal(TemporalType.DATE)
+    @NotNull @Past
     private Date beginDate;
     
     @Temporal(TemporalType.DATE)

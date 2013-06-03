@@ -19,17 +19,17 @@
             
                 <h:panelGrid columns="2">
                     <h:outputLabel for="beginDate" value="#{resourceBundle['worktime.beginDate']}" />
-                    <h:inputText id="beginDate" value="#{worktimeController.worktime.beginDate}" required="true">
+                    <h:inputText id="beginDate" value="#{worktimeController.worktime.beginDate}" >
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     
                     <h:outputLabel for="endDate" value="#{resourceBundle['worktime.endDate']}" />
-                    <h:inputText id="endDate" value="#{worktimeController.worktime.endDate}" required="true">
+                    <h:inputText id="endDate" value="#{worktimeController.worktime.endDate}" >
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:inputText>
                     
                     <h:outputLabel for="client" value="#{resourceBundle['worktime.client.name']}" />
-                    <h:selectOneListbox id="client" value="#{worktimeController.worktime.client}" required="true" >
+                    <h:selectOneListbox id="client" value="#{worktimeController.worktime.client}">
                         <f:converter converterId="com.supinfo.macon.faces.SimpleClientConverter" />
                         <f:selectItems value="#{worktimeController.clients}" var="client" itemLabel="#{client.name}" />
                     </h:selectOneListbox>

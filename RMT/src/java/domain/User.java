@@ -15,6 +15,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -33,14 +36,19 @@ public abstract class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotEmpty
     private String username;
     
+    @NotEmpty
     private String password;
     
+    @NotEmpty
     private String firstName;
     
+    @NotEmpty
     private String lastName;
     
+    @NotEmpty @Email
     private String email;
 
     public Long getId() {

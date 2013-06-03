@@ -16,27 +16,24 @@
             
                 <h:panelGrid columns="2">
                     <h:outputLabel for="username" value="#{resourceBundle['employee.add.username']}" />
-                    <h:inputText id="username" value="#{employeeController.employee.username}" required="true" />
+                    <h:inputText id="username" value="#{employeeController.employee.username}" />
 
                     <h:outputLabel for="password" value="#{resourceBundle['employee.add.password']}" />
-                    <h:inputSecret id="password" value="#{employeeController.employee.password}" required="true" />
+                    <h:inputSecret id="password" value="#{employeeController.employee.password}" />
                     
                     <h:outputLabel for="firstName" value="#{resourceBundle['employee.add.firstname']}" />
-                    <h:inputText id="firstName" value="#{employeeController.employee.firstName}" required="true" />
+                    <h:inputText id="firstName" value="#{employeeController.employee.firstName}" />
                     
                     <h:outputLabel for="lastName" value="#{resourceBundle['employee.add.lastname']}" />
-                    <h:inputText id="lastName" value="#{employeeController.employee.lastName}" required="true" />
+                    <h:inputText id="lastName" value="#{employeeController.employee.lastName}" />
                     
                     <h:outputLabel for="email" value="#{resourceBundle['employee.add.email']}" />
-                    <h:inputText id="email" value="#{employeeController.employee.email}" required="true" validatorMessage="#{validationBundle['email.message']}">
-                        <f:validateRegex pattern="(?:[a-z0-9!#$%&#038;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&#038;'*+/=?^_`{|}~-]+)*|&#8221;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*&#8221;)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" />
-                    </h:inputText>
+                    <h:inputText id="email" value="#{employeeController.employee.email}" />
                     
                     <h:outputLabel for="birthday" value="#{resourceBundle['employee.add.birthday']}" />
                     <h:panelGroup>
-                        <h:inputText id="birthday" value="#{employeeController.employee.birthday}" required="true">
+                        <h:inputText id="birthday" value="#{employeeController.employee.birthday}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
-                            <f:validator validatorId="com.supinfo.macon.faces.BirthdayDateValidator" />
                         </h:inputText>
                         (dd/MM/yyyy)
                     </h:panelGroup>

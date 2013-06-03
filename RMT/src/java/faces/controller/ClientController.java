@@ -36,7 +36,7 @@ public class ClientController {
     }
     
     public String addClient(){
-        String outcome = null;
+        String outcome = "manager_home";
         clientService.addClient(client);
         return outcome;
     }
