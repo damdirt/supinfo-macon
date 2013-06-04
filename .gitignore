@@ -1,8 +1,9 @@
 *.class
 
 # Package Files #
-#*.jar
+*.jar
 *.war
 *.ear
 /RMT/build/
 /RMT/dist/
+.ant-targets-build.xml
