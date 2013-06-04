@@ -47,15 +47,14 @@
     </javac>
   </target>
 
-  <target name="dist-jee" depends="compile">
+  <target name="-pre-dist-glassfish" depends="compile, -copy-resources" />
+
+  <target name="dist-glassfish" depends="-pre-dist-glassfish">
     <war destfile="${dist}/${projectName}.war" webxml="${webcontent}/WEB-INF/web.xml"> 
       <fileset dir="${webcontent}"/>
-      <metainf dir="${META-INF}" />
       <!-- <lib dir="${lib}"/> -->
       <classes dir="${build}"/>
-      <classes dir="${properties}">
-        <include name="**/*.properties"/>
-      </classes>
     </war>
   </target>
 </project>
+
