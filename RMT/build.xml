@@ -4,18 +4,31 @@
   <!-- set global properties for this build -->
   <property name="projectName" value="RMT"/>
   <property name="src" location="src"/>
+  <property name="srcTest" location="test"/>
   <property name="META-INF" location="src/conf" />
   <property name="properties" location="src/java"/>
   <property name="build" location="target/classes"/>
+  <property name="build-test" location="target/test-classes" />
   <property name="dist"  location="dist"/>
   <property name="webcontent"  location="web"/>
   <property name="lib" location="libs" />
+  <property name="lib-test" location="libs-test" />
   
   <path id="compile.classpath">
     <fileset dir="${lib}">
       <include name="*.jar"/>
     </fileset>
   </path>
+
+  <path id="test.classpath">
+    <pathelement location="${build}" /> 
+    <pathelement location="${build-test}" /> 
+    <path refid="compile.classpath" />
+    <fileset dir="${lib-test}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
 
   <target name="clean">
     <delete dir="dist" />
@@ -24,6 +37,7 @@
 
   <target name="init">
     <mkdir dir="${build}" />
+    <mkdir dir="${build-test}" />
     <mkdir dir="${dist}" />
   </target>
 
@@ -45,6 +59,24 @@
     <javac destdir="${build}" srcdir="${src}">
       <classpath refid="compile.classpath"/>
     </javac>
+  </target>
+  
+  <target name="compile-test" depends="compile">
+    <javac destdir="${build-test}" srcdir="${srcTest}">
+      <classpath refid="test.classpath"/>
+    </javac>
+  </target>
+  
+  <target name="test" depends="compile-test">
+    <junit printsummary="yes">
+      <classpath refid="test.classpath" />
+      <batchtest>
+        <fileset dir="${srcTest}">
+          <include name="**/*Test*" />
+        </fileset>
+      </batchtest>
+      <formatter type="brief" usefile="false"/>
+    </junit>
   </target>
 
   <target name="-pre-dist-glassfish" depends="compile, -copy-resources" />
